@@ -10,8 +10,8 @@ if __name__ == '__main__':
                         help='output file format, e.g. png, pdf')
     parser.add_argument('in_dir', default='./data', help='directory holding the OTTR instances')
     parser.add_argument('lib_file', default='./data/pattern_library.stottr', help='directory holding the OTTR library')
-    parser.add_argument('--rdf_dir', help='if specified: directory for storing the RDF instances')
-    parser.add_argument('--viz_dir', help='if specified: directory for outputting the visualizations')
+    parser.add_argument('-rdf_dir', '--rdf_dir', help='if specified: directory for storing the RDF instances')
+    parser.add_argument('-viz_dir', '--viz_dir', help='if specified: directory for outputting the visualizations')
     args = parser.parse_args()
 
     ottr_instances_path=rdf_output_path=viz_output_path = args.in_dir
