@@ -43,4 +43,9 @@ With `python viz_ottr_instances.py ./data/ottr_instances/ ./data/template_librar
 
 ![Viz OTTR Instances example](./data/ottr_instances/template_instance.png)
 
+# References
+* [Reasonable Ontology Templates (OTTR)](https://ottr.xyz/)
+* developed within the scope of the [Projekt Material Digital (PMD)](https://materialdigital.de/) project [DiProMag](https://materialdigital.de/project/2)
+
+
 
