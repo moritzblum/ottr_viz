@@ -13,12 +13,12 @@ def get_text(context):
 
 
 class OTTRPrinter(stOTTRListener):
-    def __init__(self, pattern_tree):
+    def __init__(self, template_tree):
         self.iri = None
         self.template_name = None
 
         self.used_templates = []
-        self.pattern_tree = pattern_tree
+        self.template_tree = template_tree
 
     # Exit a parse tree produced by stOTTRParser#templateName.
     def exitTemplateName(self, ctx: stOTTRParser.TemplateNameContext):
@@ -28,7 +28,7 @@ class OTTRPrinter(stOTTRListener):
 
     # Exit a parse tree produced by stOTTRParser#template.
     def exitTemplate(self, ctx: stOTTRParser.TemplateContext):
-        self.pattern_tree.extend([[self.used_templates[0], used_template] for used_template in self.used_templates[1:]])
+        self.template_tree.extend([[self.used_templates[0], used_template] for used_template in self.used_templates[1:]])
         self.used_templates = []
 
     # Enter a parse tree produced by stOTTRParser#iri.
@@ -44,10 +44,10 @@ class OTTRPrinter(stOTTRListener):
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Plot OTTR library dependencies.')
+    parser = argparse.ArgumentParser(description='Plot OTTR template library dependencies.')
     parser.add_argument('-format', '--format', default='png',
                         help='output file format, e.g. png, pdf (all types supported by graphviz)')
-    parser.add_argument('input_file')
+    parser.add_argument('input_file', help='OTTR template library file.')
 
     args = parser.parse_args()
     template_library_file = args.input_file
@@ -58,14 +58,14 @@ if __name__ == '__main__':
     stream = CommonTokenStream(lexer)
     parser = stOTTRParser(stream)
     tree = parser.stOTTRDoc()
-    pattern_tree = []
-    printer = OTTRPrinter(pattern_tree)
+    template_tree = []
+    printer = OTTRPrinter(template_tree)
     walker = ParseTreeWalker()
     walker.walk(printer, tree)
 
     # build networkx graph
     G = nx.DiGraph()
-    G.add_edges_from(pattern_tree)
+    G.add_edges_from(template_tree)
     print('is_directed_acyclic_graph:', nx.is_directed_acyclic_graph(G))
 
     # plot with graphviz

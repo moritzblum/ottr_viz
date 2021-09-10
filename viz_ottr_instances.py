@@ -9,7 +9,7 @@ if __name__ == '__main__':
     parser.add_argument('-format', '--format', default='png',
                         help='output file format, e.g. png, pdf')
     parser.add_argument('in_dir', default='./data', help='directory holding the OTTR instances')
-    parser.add_argument('lib_file', default='./data/pattern_library.stottr', help='directory holding the OTTR library')
+    parser.add_argument('lib_file', default='./data/template_library.stottr', help='directory holding the OTTR library')
     parser.add_argument('-rdf_dir', '--rdf_dir', help='if specified: directory for storing the RDF instances')
     parser.add_argument('-viz_dir', '--viz_dir', help='if specified: directory for outputting the visualizations')
     args = parser.parse_args()

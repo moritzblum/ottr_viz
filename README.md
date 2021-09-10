@@ -20,9 +20,9 @@ Requires Python >= 3.6
     -format, --format:  output file format, e.g. png, pdf (all types supported by graphviz), default='png'
 
 ### Example:
-With `python viz_ottr_library.py -format png data/pattern_library.stottr` you can generate the following visualization:
+With `python viz_ottr_library.py -format png data/template_library.stottr` you can generate the following visualization:
 
-![Viz OTTR Library example](./data/pattern_library_viz.png)
+![Viz OTTR Library example](./data/template_library_viz.png)
 
 
 ## Viz OTTR Instances
@@ -39,8 +39,8 @@ With `python viz_ottr_library.py -format png data/pattern_library.stottr` you ca
     -viz_dir, --viz_dir:    if specified: directory for outputting the visualizations
 
 ### Example:
-With `python viz_ottr_instances.py ./data/ottr_instances/ ./data/pattern_library.stottr` you can generate the following visualization:
+With `python viz_ottr_instances.py ./data/ottr_instances/ ./data/template_library.stottr` you can generate the following visualization:
 
-![Viz OTTR Instances example](./data/ottr_instances/pattern_instance.png)
+![Viz OTTR Instances example](./data/ottr_instances/template_instance.png)
 
 
